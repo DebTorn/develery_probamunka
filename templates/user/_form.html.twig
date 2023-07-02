@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            {{ form_start(form) }}
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+
+                    {{ form_row(form.email, {'attr' : { 'class' : 'form-control mb-3' }}) }}
+                    {{ form_row(form.plainPassword, {'attr' : { 'class' : 'form-control mb-3' }}) }}
+
+                    <button class="btn btn-primary">{{ button_label|default('Mentés') }}</button>
+                {{ form_end(form) }}
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>

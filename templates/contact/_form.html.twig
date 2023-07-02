@@ -1,6 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
             {{ form_start(form) }}
                 {{ form_errors(form) }}
     
@@ -8,7 +13,7 @@
                 {{ form_row(form.email, {'attr' : { 'class' : 'form-control mb-3' }}) }}
                 {{ form_row(form.message, {'attr' : { 'class' : 'form-control mb-3' }}) }}
     
-                <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+                <button class="btn btn-primary">{{ button_label|default('Mentés') }}</button>
             {{ form_end(form) }}
         </div>
     </div>

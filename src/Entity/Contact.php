@@ -14,19 +14,24 @@ class Contact
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Assert\NotNull]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\NotNull]
+    #[Assert\NotBlank]
     private ?string $name = null;
 
     #[ORM\Column(length: 255, unique: true)]
     #[Assert\NotNull]
+    #[Assert\NotBlank]
+    #[Assert\Email(
+        message: 'Hiba! Kérjük e-mail címet adjál meg!',
+    )]
     private ?string $email = null;
 
     #[ORM\Column(length: 1000)]
     #[Assert\NotNull]
+    #[Assert\NotBlank]
     private ?string $message = null;
 
     public function getId(): ?int
